@@ -218,21 +218,21 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    // build: {
-    //     rollupOptions: {
-    //       output: {
-    //         assetFileNames: (assetInfo) => {
-    //           let extType = assetInfo.name.split('.').at(1);
-    //           if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-    //             extType = 'img';
-    //           }
-    //           return `assets/${extType}/[name]-[hash][extname]`;
-    //         },
-    //         chunkFileNames: 'assets/js/[name]-[hash].js',
-    //         entryFileNames: 'assets/js/[name]-[hash].js',
-    //       },
-    //     },
-    //   },
+    build: {
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              let extType = assetInfo.name.split('.').at(1);
+              if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+                extType = 'img';
+              }
+              return `assets/${extType}/[name]-[hash][extname]`;
+            },
+            chunkFileNames: 'assets/js/[name]-[hash].js',
+            entryFileNames: 'assets/js/[name]-[hash].js',
+          },
+        },
+    },
     // build: {
     //     rollupOptions: {
     //         output: {
@@ -243,11 +243,11 @@ export default defineConfig({
     //     }
     // }
 
-    // resolve: {
-    //     alias: {
-    //         // '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
-    //         '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.min.css'),
-    //         '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
-    //     }
-    // }
+    resolve: {
+        alias: {
+            // '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap/dist/css/bootstrap.min.css'),
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        }
+    }
 });
